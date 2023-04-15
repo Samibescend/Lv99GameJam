@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qqbxkxqkql1q"]
+[gd_scene load_steps=8 format=3 uid="uid://qqbxkxqkql1q"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_bf17v"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://icon.svg" id="1_n18nd"]
-[ext_resource type="PackedScene" uid="uid://3gekng7txtb2" path="res://Player.tscn" id="2_jd7qq"]
+[ext_resource type="PackedScene" uid="uid://dq0j7bo614dvp" path="res://Player.tscn" id="2_jd7qq"]
+[ext_resource type="PackedScene" uid="uid://dwribc7adsygc" path="res://EnnemyQTG.tscn" id="4_0ouf3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in4ug"]
 texture = ExtResource("1_n18nd")
@@ -221,5 +222,8 @@ position = Vector2(1094.75, 591.75)
 shape = SubResource("RectangleShape2D_so37t")
 
 [node name="Player" parent="." instance=ExtResource("2_jd7qq")]
+
+[node name="EnnemyQTG" parent="." instance=ExtResource("4_0ouf3")]
+position = Vector2(987, 536)
 
 [connection signal="body_entered" from="TileMap/End level 1" to="." method="_on_end_level_1_body_entered"]
