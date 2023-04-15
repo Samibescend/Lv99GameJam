@@ -23,9 +23,4 @@ shape = SubResource("RectangleShape2D_ei60j")
 wait_time = 0.4
 one_shot = true
 
-[node name="ChargeTimer" type="Timer" parent="."]
-wait_time = 0.111
-one_shot = true
-
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]

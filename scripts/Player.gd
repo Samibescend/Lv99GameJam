@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed = 400
 @export var dash_speed = 1000
 @export var focus_increment_by_second = 10
+@export var dash_cost = 20
 
 var old_speed
 var focus = 0
@@ -12,7 +13,8 @@ func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
 	
-	if (Input.is_action_just_pressed("dash") and $DashTimer.is_stopped()):
+	if (Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and focus >= dash_cost):
+		focus -= dash_cost
 		old_speed = speed
 		speed += dash_speed
 		$DashTimer.start()
