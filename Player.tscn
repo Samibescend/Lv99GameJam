@@ -16,3 +16,9 @@ texture = ExtResource("1_smbkt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_ei60j")
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.111
+one_shot = true
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
