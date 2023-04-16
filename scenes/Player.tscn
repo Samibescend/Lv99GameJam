@@ -1,7 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dw05ritt534pa"]
+[gd_scene load_steps=7 format=3 uid="uid://dxclvdjkx72nl"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_o2wqy"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://assets/icon.svg" id="2_salco"]
+[ext_resource type="Texture2D" uid="uid://dhvretmrjw3vm" path="res://assets/1764108.png" id="3_6w1ft"]
+[ext_resource type="Texture2D" uid="uid://clyfqqi2jlohh" path="res://assets/w8mgthh30ypa1.png" id="3_ut77u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tsgh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_salco")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ut77u")
+}],
+"loop": true,
+"name": &"hyper_mode",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei60j"]
 size = Vector2(124.75, 126.75)
@@ -12,8 +33,10 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_o2wqy")
 dash_speed = 1200
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_salco")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.499975, -0.435997)
+scale = Vector2(0.300948, 0.278729)
+sprite_frames = SubResource("SpriteFrames_2tsgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -23,4 +46,13 @@ shape = SubResource("RectangleShape2D_ei60j")
 wait_time = 0.4
 one_shot = true
 
+[node name="FocusRing" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_6w1ft")
+
+[node name="HyperMode" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="HyperMode" to="." method="_on_hyper_mode_timeout"]
