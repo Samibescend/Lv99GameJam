@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxclvdjkx72nl"]
+[gd_scene load_steps=7 format=3 uid="uid://dw05ritt534pa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_o2wqy"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://assets/icon.svg" id="2_salco"]
+[ext_resource type="Texture2D" uid="uid://5eth3dnsi0ua" path="res://art/grey.png" id="3_8yddb"]
+[ext_resource type="Texture2D" uid="uid://bgxde8oe1oelk" path="res://art/yellow.png" id="3_kcf1d"]
+[ext_resource type="Script" path="res://scripts/Focus.gd" id="5_1flmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei60j"]
 size = Vector2(124.75, 126.75)
@@ -22,5 +25,15 @@ shape = SubResource("RectangleShape2D_ei60j")
 [node name="DashTimer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="Focus" type="TextureProgressBar" parent="."]
+offset_left = -784.0
+offset_top = -416.0
+offset_right = 2864.0
+offset_bottom = 3952.0
+scale = Vector2(0.095135, 0.0151371)
+texture_under = ExtResource("3_8yddb")
+texture_progress = ExtResource("3_kcf1d")
+script = ExtResource("5_1flmd")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

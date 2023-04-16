@@ -9,6 +9,10 @@ var old_speed
 var focus = 0
 var focus_time_in_seconds = 0
 
+func get_focus():
+	return focus
+
+
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
