@@ -22,4 +22,8 @@ shape = SubResource("RectangleShape2D_h6cjh")
 position = Vector2(0, -100)
 scale = Vector2(1e-05, 1e-05)
 
+[node name="TimerQTE" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TimerQTE" to="." method="_on_timer_qte_timeout"]
