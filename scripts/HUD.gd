@@ -1,4 +1,4 @@
-extends TextureProgressBar
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,4 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	value = get_owner().focus
+	pass
+
+func update_focus(focus):
+	$FocusBar.value = focus
+	$FocusCounter.text = str(focus)

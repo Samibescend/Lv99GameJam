@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$HUD.update_focus($Player.focus)
 
 
 func _on_end_level_1_body_entered(body):
