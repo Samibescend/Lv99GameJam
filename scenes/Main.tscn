@@ -226,7 +226,3 @@ shape = SubResource("RectangleShape2D_so37t")
 [node name="HUD" parent="." instance=ExtResource("4_nd04n")]
 
 [connection signal="body_entered" from="TileMap/End level 1" to="." method="_on_end_level_1_body_entered"]
-[connection signal="changed" from="HUD/FocusBar" to="." method="_on_focus_bar_changed"]
-[connection signal="value_changed" from="HUD/FocusBar" to="." method="_on_focus_bar_value_changed"]
-
-[editable path="HUD"]

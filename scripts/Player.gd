@@ -16,7 +16,6 @@ func get_input():
 	
 	if (Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and focus >= dash_cost):
 		focus -= dash_cost
-		get_parent().update_focus(focus)
 		old_speed = speed
 		speed += dash_speed
 		$DashTimer.start()
@@ -28,10 +27,12 @@ func get_input():
 func _process(delta):
 	if (Input.is_action_pressed("charge_focus")):
 		focus_time_in_seconds += delta
-		if (floor(focus_time_in_seconds * focus_increment_by_second) > 1):
-			focus = clamp(focus + floor(focus_time_in_seconds * focus_increment_by_second), 0, 100)
-			focus_time_in_seconds = 0
-			(get_parent().update_focus(focus))
+		
+	if (Input.is_action_just_released("charge_focus")):
+		var focus_increase = floor(focus_time_in_seconds * focus_increment_by_second)
+		focus = clamp(focus + focus_increase, 0, 100)
+		print_debug(focus, "\n", focus_time_in_seconds)
+		focus_time_in_seconds = 0
 
 
 func _physics_process(delta):
@@ -41,4 +42,3 @@ func _physics_process(delta):
 
 func _on_dash_timer_timeout():
 	speed = old_speed
-
