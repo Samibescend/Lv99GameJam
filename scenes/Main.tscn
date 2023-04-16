@@ -67,6 +67,7 @@ texture = ExtResource("1_n18nd")
 3:2/0 = 0
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
 4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:2/0/physics_layer_0/angular_velocity = 0.0
@@ -222,6 +223,7 @@ position = Vector2(1094.75, 591.75)
 shape = SubResource("RectangleShape2D_so37t")
 
 [node name="Player" parent="." instance=ExtResource("2_jd7qq")]
+position = Vector2(576, 321)
 
 [node name="HUD" parent="." instance=ExtResource("4_nd04n")]
 
