@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3a8q2oxd04q3"]
+
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="1_s3nj1"]
+
+[node name="GunEnnemy" type="CharacterBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-40, -33)
+polygon = PackedVector2Array(16, 8, 87, 37, 16, 54)
+
+[node name="VisionCone2D" parent="." instance=ExtResource("1_s3nj1")]
+rotation = -1.5708
+debug_lines = true
+debug_shape = true
