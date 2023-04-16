@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,11 +10,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_end_level_1_body_entered(body):
-	print("END OF THE FIRST LEVEL") # Replace with function body.
-
-func update_focus(value):
-	$HUD.update_focus(value)
-
-
+func update_focus(focus):
+	$FocusBar.value = focus
+	$FocusCounter.text = str(focus)
