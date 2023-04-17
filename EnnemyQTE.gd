@@ -35,10 +35,7 @@ func _process(delta):
 			if j < 3:
 				createQTE()
 			if j == 3: 
-				player.speed = 400
-				camera.zoom.x = 1
-				camera.zoom.y = 1
-				queue_free()
+				win_QTE()
 	pass
 
 func animCamera(player : CharacterBody2D):
@@ -52,6 +49,14 @@ func run_QTE():
 	createQTE()
 		
 
+func win_QTE():
+	player.speed = 400
+	camera.zoom.x = 1
+	camera.zoom.y = 1
+	camera.position.x = 581
+	camera.position.y = 325
+	queue_free()
+	
 func createQTE():
 	var QTE_sprite = get_node("QTE")
 	rand = rng.randf_range(0,3)
