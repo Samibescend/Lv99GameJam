@@ -18,6 +18,24 @@ func _ready():
 func _physics_process(delta):
 	pass
 
+func _input(event):
+	if QTE:
+		if event is InputEvent:
+			if Input.is_action_just_pressed(listOfInput[rand]):
+				QTE = false
+				$TimerQTE.stop()
+				print('reussi')
+				j+=1
+				if j < 3:
+					run_QTE()
+				if j == 3: 
+					win_QTE()
+			elif event.is_pressed() :
+				QTE= false
+				$TimerQTE.stop()
+				print('no the good input')
+				game_over()
+
 
 func _process(delta):
 	#travelling vers le joueur
@@ -26,16 +44,6 @@ func _process(delta):
 		i += 1
 		if i >= 10:
 			transi = false
-	if QTE:
-		if Input.is_action_just_pressed(listOfInput[rand]):
-			QTE = false
-			$TimerQTE.stop()
-			print('reussi')
-			j+=1
-			if j < 3:
-				createQTE()
-			if j == 3: 
-				win_QTE()
 	pass
 
 func animCamera(player : CharacterBody2D):
@@ -46,7 +54,13 @@ func animCamera(player : CharacterBody2D):
 
 func run_QTE():
 	print('QTE')
-	createQTE()
+	var QTE_sprite = get_node("QTE")
+	rand = rng.randf_range(0,3)
+	QTE_sprite.texture = load(listOfSprite[rand])
+	QTE_sprite.scale.x = 2
+	QTE_sprite.scale.y = 2
+	QTE = true
+	$TimerQTE.start()
 		
 
 func win_QTE():
@@ -57,14 +71,6 @@ func win_QTE():
 	camera.position.y = 325
 	queue_free()
 	
-func createQTE():
-	var QTE_sprite = get_node("QTE")
-	rand = rng.randf_range(0,3)
-	QTE_sprite.texture = load(listOfSprite[rand])
-	QTE_sprite.scale.x = 2
-	QTE_sprite.scale.y = 2
-	QTE = true
-	$TimerQTE.start()
 
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
@@ -78,5 +84,11 @@ func _on_body_entered(body):
 
 
 func _on_timer_qte_timeout():
-	print('fail')
+	print('too late')
+	QTE = false
+	$TimerQTE.stop()
+	game_over()
 	pass # Replace with function body.
+
+func game_over():
+	pass
