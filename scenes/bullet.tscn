@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpq4lw0t6va8i"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_cabtn"]
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_cabtn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqes1"]
 size = Vector2(28, 20)

@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://qpk8ecnsmxaf"
-path="res://.godot/imported/dates.jpg-6e9812aed90f9b8f7c926cdde73e2215.ctex"
+uid="uid://0bmur4s4r7gt"
+path="res://.godot/imported/dates.jpg-2f6d8ec08adce6b84943da5519d275d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dates.jpg"
-dest_files=["res://.godot/imported/dates.jpg-6e9812aed90f9b8f7c926cdde73e2215.ctex"]
+source_file="res://readme/dates.jpg"
+dest_files=["res://.godot/imported/dates.jpg-2f6d8ec08adce6b84943da5519d275d5.ctex"]
 
 [params]
 

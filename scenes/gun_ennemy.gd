@@ -3,7 +3,7 @@ var player_seen = false
 var speed = 400
 signal shoot(bullet, direction, location)
 
-var Bullet = preload("res://Bullet.tscn")
+var Bullet = preload("res://scenes/bullet.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
