@@ -23,7 +23,7 @@ func _input(event):
 		if event is InputEvent:
 			if Input.is_action_just_pressed(listOfInput[rand]):
 				QTE = false
-				$TimerQTE.stop()
+				$ProgressBar/TimerQTE.stop()
 				print('reussi')
 				j+=1
 				if j < 3:
@@ -32,7 +32,7 @@ func _input(event):
 					win_QTE()
 			elif event.is_pressed() :
 				QTE= false
-				$TimerQTE.stop()
+				$ProgressBar/TimerQTE.stop()
 				print('no the good input')
 				game_over()
 
@@ -60,7 +60,8 @@ func run_QTE():
 	QTE_sprite.scale.x = 2
 	QTE_sprite.scale.y = 2
 	QTE = true
-	$TimerQTE.start()
+	$ProgressBar/TimerQTE.start()
+	$ProgressBar.show()
 		
 
 func win_QTE():
@@ -86,9 +87,9 @@ func _on_body_entered(body):
 func _on_timer_qte_timeout():
 	print('too late')
 	QTE = false
-	$TimerQTE.stop()
+	$ProgressBar/TimerQTE.stop()
 	game_over()
 	pass # Replace with function body.
 
 func game_over():
-	pass
+	get_tree().reload_current_scene()

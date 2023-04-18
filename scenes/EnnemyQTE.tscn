@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dufwmq060fnt8"]
+[gd_scene load_steps=6 format=3 uid="uid://dufwmq060fnt8"]
 
 [ext_resource type="Script" path="res://scripts/EnnemyQTE.gd" id="1_7h18h"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://assets/icon.svg" id="2_v5t0q"]
+[ext_resource type="Script" path="res://scenes/ProgressBar.gd" id="3_21nqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6cjh"]
 size = Vector2(124.75, 126.75)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmkk3"]
+bg_color = Color(0.898039, 0.301961, 0, 1)
 
 [node name="EnnemyQTG" type="Area2D"]
 disable_mode = 1
@@ -22,8 +26,18 @@ shape = SubResource("RectangleShape2D_h6cjh")
 position = Vector2(0, -100)
 scale = Vector2(1e-05, 1e-05)
 
-[node name="TimerQTE" type="Timer" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -96.0
+offset_top = 91.0
+offset_right = 96.0
+offset_bottom = 118.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nmkk3")
+max_value = 2.0
+show_percentage = false
+script = ExtResource("3_21nqe")
+
+[node name="TimerQTE" type="Timer" parent="ProgressBar"]
 wait_time = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="TimerQTE" to="." method="_on_timer_qte_timeout"]
+[connection signal="timeout" from="ProgressBar/TimerQTE" to="." method="_on_timer_qte_timeout"]
