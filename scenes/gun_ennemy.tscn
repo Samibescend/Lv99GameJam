@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://34h5qq3glv80"]
+[gd_scene load_steps=3 format=3 uid="uid://wjs70txq3d8v"]
+
+[ext_resource type="Script" path="res://scenes/gun_ennemy.gd" id="1_bwjk2"]
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="1_s3nj1"]
 
 [node name="GunEnnemy" type="CharacterBody2D"]
+position = Vector2(35, -4)
+script = ExtResource("1_bwjk2")
+
+[node name="Body" type="Polygon2D" parent="."]
+position = Vector2(-40, -33)
+polygon = PackedVector2Array(16, 8, 87, 37, 16, 54)
+
+[node name="VisionCone2D" parent="." instance=ExtResource("1_s3nj1")]
+rotation = -1.5708
+angle_deg = 120
+
+[node name="BulletSpawn" type="PinJoint2D" parent="."]
+position = Vector2(47, 4)
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.147
+one_shot = true
+
+[connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
+[connection signal="body_exited" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_exited"]
+
+[editable path="VisionCone2D"]
