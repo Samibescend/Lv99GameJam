@@ -5,22 +5,26 @@ extends CharacterBody2D
 @export var focus_increment_by_second = 10
 @export var dash_cost = 20
 
-var old_speed
-var focus = 0
+var focus = 100
 var focus_time_in_seconds = 0
 var has_collided
 var can_focus = true
-
+var dash_target
 
 func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = input_direction * speed
-	
 	if (Input.is_action_just_pressed("dash") and $DashTimer.is_stopped() and focus >= dash_cost):
 		focus -= dash_cost
-		old_speed = speed
-		speed += dash_speed
+		dash_target = get_global_mouse_position()
 		$DashTimer.start()
+		
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	look_at(get_global_mouse_position())
+	
+	if ($DashTimer.is_stopped()):
+		velocity = input_direction * speed
+	else:
+		velocity = position.direction_to(dash_target) * dash_speed
+		print_debug("Dashed in direction ", velocity, " at speed ", speed, " with direction ", position.direction_to(dash_target))
 		
 	if (Input.is_action_pressed("charge_focus")):
 		velocity = Vector2.ZERO
@@ -49,6 +53,3 @@ func _process(delta):
 func _physics_process(delta):
 	get_input()
 	has_collided = move_and_slide()
-
-func _on_dash_timer_timeout():
-	speed = old_speed

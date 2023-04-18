@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_bf17v"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://assets/icon.svg" id="1_n18nd"]
-[ext_resource type="PackedScene" uid="uid://dxclvdjkx72nl" path="res://scenes/Player.tscn" id="2_jd7qq"]
-[ext_resource type="PackedScene" path="res://scenes/EnnemyQTE.tscn" id="4_0ouf3"]
-[ext_resource type="PackedScene" path="res://scenes/HUD.tscn" id="4_nd04n"]
+[ext_resource type="PackedScene" uid="uid://dw05ritt534pa" path="res://scenes/Player.tscn" id="2_jd7qq"]
+[ext_resource type="PackedScene" uid="uid://d1n46g4mxdg88" path="res://scenes/EnnemyQTE.tscn" id="4_0ouf3"]
+[ext_resource type="PackedScene" uid="uid://ch17bhcan3btu" path="res://scenes/HUD.tscn" id="4_nd04n"]
 [ext_resource type="PackedScene" uid="uid://wjs70txq3d8v" path="res://scenes/gun_ennemy.tscn" id="4_o2yu2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_in4ug"]
@@ -246,7 +246,10 @@ position = Vector2(1094.75, 591.75)
 shape = SubResource("RectangleShape2D_so37t")
 
 [node name="Player" parent="." instance=ExtResource("2_jd7qq")]
-position = Vector2(799, 359)
+position = Vector2(704, 320)
+
+[node name="CollisionShape2D" parent="Player" index="1"]
+position = Vector2(2, 2)
 
 [node name="GunEnnemy" parent="." instance=ExtResource("4_o2yu2")]
 position = Vector2(216, 253)
