@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cptjb58b56ipm"
-path="res://.godot/imported/icon.png-0aa5bba4af5a332d87a18103ccdae1a1.ctex"
+uid="uid://c0nicvwun7qxh"
+path="res://.godot/imported/bas.png-625cc5d2359cc992448022a4ad3b3b22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/vision_cone_2d/icon.png"
-dest_files=["res://.godot/imported/icon.png-0aa5bba4af5a332d87a18103ccdae1a1.ctex"]
+source_file="res://assets/bas.png"
+dest_files=["res://.godot/imported/bas.png-625cc5d2359cc992448022a4ad3b3b22.ctex"]
 
 [params]
 
 compress/mode=0
-
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

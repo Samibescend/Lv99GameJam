@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxclvdjkx72nl"]
+[gd_scene load_steps=4 format=3 uid="uid://dw05ritt534pa"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_o2wqy"]
 [ext_resource type="Texture2D" uid="uid://dcyh1sq45ya2w" path="res://assets/icon.svg" id="2_salco"]
@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei60j"]
 size = Vector2(124.75, 126.75)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(776, 416)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_o2wqy")
@@ -23,9 +23,4 @@ shape = SubResource("RectangleShape2D_ei60j")
 wait_time = 0.4
 one_shot = true
 
-[node name="ChargeTimer" type="Timer" parent="."]
-wait_time = 0.111
-one_shot = true
-
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
-[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]
