@@ -15,8 +15,8 @@ func _ready():
 func _process(delta):
 	if player_seen:
 		look_at(get_parent().get_node("./Player").position)
-	if player_seen and $Timer.is_stopped():
-		$Timer.start()
+	if player_seen and $ShootTimer.is_stopped():
+		$ShootTimer.start()
 		shoot.emit(Bullet, self.rotation, self.position)
 
 

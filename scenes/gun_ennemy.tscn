@@ -18,7 +18,8 @@ angle_deg = 120
 [node name="BulletSpawn" type="PinJoint2D" parent="."]
 position = Vector2(47, 4)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.147
 one_shot = true
 
 [connection signal="body_entered" from="VisionCone2D/VisionConeArea" to="." method="_on_vision_cone_area_body_entered"]
